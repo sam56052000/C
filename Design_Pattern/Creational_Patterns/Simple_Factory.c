@@ -4,43 +4,48 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-typedef struct class_product *class_product;
+typedef struct class_controller *class_controller;
 
-typedef struct product1_t
+struct class_controller
 {
-	int para1;
+	float gain;
 
-	int para2;
+	float max;
 
-} product1_t;
+	float min;
+};
 
-typedef struct product2_t
+typedef struct raw_controller_t
 {
-	int para1;
+	struct class_controller param;
 
-	int para2;
+} raw_controller_t;
 
-} product2_t;
-
-class_product CreateFunc(char input)
+typedef struct pitch_controller_t
 {
-	class_product instance = NULL;
+	struct class_controller param;
+
+} pitch_controller_t;
+
+class_controller CreateController(char input)
+{
+	class_controller instance = NULL;
 
 	switch(input)
 	{
-		case '1':
+		case 'R':
 		{
-			instance = malloc(sizeof(product1_t));
+			instance = malloc(sizeof(raw_controller_t));
 
-			((product1_t *)instance) -> para1 = 1;
+			((raw_controller_t *)instance) -> param.gain = 1.0f;
 		}
 		break;
 
-		case '2':
+		case 'P':
 		{
-			instance = malloc(sizeof(product2_t));
+			instance = malloc(sizeof(pitch_controller_t));
 
-			((product2_t *)instance) -> para2 = 2;
+			((pitch_controller_t *)instance) -> param.gain = 1.0f;
 		}
 		break;
 	}
@@ -50,11 +55,11 @@ class_product CreateFunc(char input)
 
 void main(void)
 {
-	product1_t *A;
-	product2_t *B;
+	raw_controller_t *A;
+	pitch_controller_t *B;
 
-	A = (product1_t *)CreateFunc('1');
-	B = (product2_t *)CreateFunc('2');
+	A = (raw_controller_t *)CreateController('R');
+	B = (pitch_controller_t *)CreateController('P');
 
-	printf("%d, %d\n", A -> para1, B -> para2);
+	printf("%.3f, %.3f\n", A -> param.gain, B -> param.gain);
 }

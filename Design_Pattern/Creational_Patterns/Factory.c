@@ -4,56 +4,70 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-typedef struct class_product *class_product;
+typedef struct class_controller *class_controller;
 
-typedef struct product1_t
+struct class_controller
 {
-	int para1;
+	float gain;
 
-	int para2;
+	float max;
 
-} product1_t;
+	float min;
+};
 
-class_product Creat_product1(void)
+typedef struct raw_controller_t
 {
-	class_product instance = NULL;
+	struct class_controller param;
 
-	instance = malloc(sizeof(product1_t));
+} raw_controller_t;
 
-	((product1_t *)instance) -> para1 = 1;
+typedef struct pitch_controller_t
+{
+	struct class_controller param;
+
+} pitch_controller_t;
+
+typedef struct controller_creator
+{
+	class_controller (*Create)(void);
+
+} controller_creator;
+
+class_controller Create_raw_controller(void)
+{
+	class_controller instance = NULL;
+
+	instance = malloc(sizeof(raw_controller_t));
+
+	((raw_controller_t *)instance) -> param.gain = 1.0f;
 
 	return instance;
 }
 
-typedef struct product2_t
+class_controller Create_pitch_controller(void)
 {
-	int para1;
+	class_controller instance = NULL;
 
-	int para2;
+	instance = malloc(sizeof(pitch_controller_t));
 
-} product2_t;
-
-class_product Creat_product2(void)
-{
-	class_product instance = NULL;
-
-	instance = malloc(sizeof(product2_t));
-
-	((product2_t *)instance) -> para2 = 2;
+	((pitch_controller_t *)instance) -> param.gain = 1.0f;
 
 	return instance;
 }
 
 void main(void)
 {
-	product1_t *A;
-	product2_t *B;
+	controller_creator raw_creator, pitch_creator;
 
-	A = (product1_t *)Creat_product1();
-	B = (product2_t *)Creat_product2();
+	raw_creator.Create = Create_raw_controller;
 
-	A -> para1 = 1;
-	B -> para2 = 2;
+	pitch_creator.Create = Create_pitch_controller;
 
-	printf("%d, %d\n", A -> para1, B -> para2);
+	raw_controller_t *A;
+	pitch_controller_t *B;
+
+	A = (raw_controller_t *)raw_creator.Create();
+	B = (pitch_controller_t *)pitch_creator.Create();
+
+	printf("%.3f, %.3f\n", A -> param.gain, B -> param.gain);
 }

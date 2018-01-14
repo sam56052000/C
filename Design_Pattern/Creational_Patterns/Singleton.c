@@ -4,21 +4,21 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-typedef struct product_t
+typedef struct attitude_t
 {
-	int para1;
+	float raw;
+	float pitch;
+	float yaw;
 
-	int para2;
+} attitude_t;
 
-} product_t;
-
-product_t * CreateFunc(void)
+attitude_t *CreateAttitude(void)
 {
-	static product_t *instance = NULL;
+	static attitude_t *instance = NULL;
 
 	if(instance == NULL)
 	{
-		instance = malloc(sizeof(product_t));
+		instance = malloc(sizeof(attitude_t));
 	}
 
 	return instance;
@@ -26,10 +26,10 @@ product_t * CreateFunc(void)
 
 void main(void)
 {
-	product_t *A, *B;
+	attitude_t *A, *B;
 
-	A = CreateFunc();
-	B = CreateFunc();
+	A = CreateAttitude();
+	B = CreateAttitude();
 
 	printf("add1 = %p, add2 = %p\n", A, B);
 }

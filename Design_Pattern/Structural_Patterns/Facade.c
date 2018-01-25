@@ -1,6 +1,3 @@
-//
-// Use a interface to cover all sub module
-//
 #include "stdio.h"
 #include "srdlib.h"
 

@@ -1,6 +1,3 @@
-//
-// Use abstract method to handle many concreate method
-//
 #include "stdio.h"
 #include "stdlib.h"
 

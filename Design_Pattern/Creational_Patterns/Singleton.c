@@ -1,6 +1,3 @@
-//
-// One class only creat one object.
-//
 #include "stdio.h"
 #include "stdlib.h"
 

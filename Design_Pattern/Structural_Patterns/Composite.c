@@ -1,6 +1,3 @@
-//
-// Tree Data
-//
 #include "stdio.h"
 #include "stdlib.h"
 

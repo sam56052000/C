@@ -1,6 +1,3 @@
-//
-// Create each Product by each factory.
-//
 #include "stdio.h"
 #include "stdlib.h"
 

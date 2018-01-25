@@ -1,6 +1,6 @@
-//
-// change interface to other interface by adapter
-//
+#include "stdio.h"
+#include "stdlib.h"
+
 typedef struct GPS_error_t
 {
 	float lon;

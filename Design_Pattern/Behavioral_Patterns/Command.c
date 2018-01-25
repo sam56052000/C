@@ -1,6 +1,3 @@
-//
-// Set Command into object which can assign by invoker
-//
 #include "stdio.h"
 #include "stdlib.h"
 

@@ -1,6 +1,3 @@
-//
-// Use one create function to handle all object creation.
-//
 #include "stdio.h"
 #include "stdlib.h"
 

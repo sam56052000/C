@@ -1,6 +1,3 @@
-//
-// When subject update, need ack all attach function.
-//
 #include "stdio.h"
 #include "stdlib.h"
 

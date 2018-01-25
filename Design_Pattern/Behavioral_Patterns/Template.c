@@ -1,6 +1,6 @@
-//
-// Design a template for children class use
-//
+#include "stdio.h"
+#include "stdlib.h"
+
 typedef struct LED class_LED;
 
 struct LED

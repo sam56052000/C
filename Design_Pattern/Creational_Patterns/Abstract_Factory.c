@@ -1,6 +1,3 @@
-//
-// Create a factory class, and use this class to create concrete factory.
-//
 #include "stdio.h"
 #include "stdlib.h"
 

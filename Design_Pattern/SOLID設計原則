@@ -1,0 +1,14 @@
+S: Single Responsibility Principle(SRP)
+	- 單一職責 ：一個類別只負責一件事
+
+O: Open/Close Principle(OCP)
+	- 開放封閉 ：開放新增功能，封閉修改功能。
+
+L: Liskov Substitution Principle(LSP)
+	- 替換原則 ：子類別可以做父類別的事。
+
+I: Interface Segregation Principle(ISP)
+	- 介面隔離 ：將介面從類別隔離出來
+
+D: Dependency Inversion Principle(DIP)
+	- 依賴反轉 ：模組依賴在抽象概念，抽象概念不依賴細節。
